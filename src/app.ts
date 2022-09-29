@@ -22,12 +22,12 @@ const uploadHandler = multer({
 const app = express();
 
 const template = path.join(__dirname, "./view", "index.html");
-app.get("/pminggg/test", (req: Request, res: Response) => {
+app.get("/pmingg/test", (req: Request, res: Response) => {
   res.sendFile(template);
 });
 
 app.post(
-  "/pminggg/upload",
+  "/pmingg/upload",
   uploadHandler.single("image"),
   (req: Request, res: Response) => {
     try {
