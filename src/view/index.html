@@ -10,12 +10,9 @@
         const file = document.getElementById("image_input").files[0];
         const form = new FormData();
         form.append("image", file);
-        fetch("http://localhost:1234/upload", {
+        fetch("http://localhost:1234/pmingg/upload", {
           method: "POST",
           body: form,
-          // headers: {
-          //   "Content-Type": "application/json",
-          // },
         });
       }
     </script>

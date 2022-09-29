@@ -13,13 +13,13 @@ const uploadHandler = multer({
       "./secure/delta-discovery-279706-05f98f12cbb3.json"
     ),
     filename: (req: any, file: any, cb: any) => {
-      console.log(file);
       cb(null, `pming-gg-image/${Date.now()}`);
     },
   }),
 });
 
 const app = express();
+app.use(express.static("view"));
 
 const template = path.join(__dirname, "./view", "index.html");
 app.get("/pmingg/test", (req: Request, res: Response) => {
