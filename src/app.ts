@@ -13,6 +13,7 @@ const uploadHandler = multer({
       "./secure/delta-discovery-279706-05f98f12cbb3.json"
     ),
     filename: (req: any, file: any, cb: any) => {
+      console.log(req);
       cb(null, `pming-gg-image/${Date.now()}`);
     },
   }),
