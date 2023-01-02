@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import path from "path";
 import multer from "multer";
 import { storageEngine } from "multer-google-storage";
+import cors from "cors";
 
 const uploadHandler = multer({
   storage: storageEngine({
@@ -19,7 +20,13 @@ const uploadHandler = multer({
   }),
 });
 
+const allowedOrigins = ["http://localhost:3000", "https://pminggg.web.app"];
+
+const options: cors.CorsOptions = {
+  origin: allowedOrigins,
+};
 const app = express();
+app.use(cors(options));
 app.use(express.static("view"));
 
 const template = path.join(__dirname, "./view", "index.html");
